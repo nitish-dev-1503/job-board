@@ -17,4 +17,8 @@ public class JobBoard {
     public List<Job> getJobs() {
         return jobs;
     }
+
+    public void removeJob(Job job) {
+        jobs.remove(job);
+    }
 }

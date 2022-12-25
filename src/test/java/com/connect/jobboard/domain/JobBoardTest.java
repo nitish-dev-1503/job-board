@@ -2,8 +2,7 @@ package com.connect.jobboard.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class JobBoardTest {
 
@@ -28,5 +27,16 @@ class JobBoardTest {
         var jobs = jobBoard.getJobs();
 
         assertEquals(jobTitle, jobs.get(0).getTitle());
+    }
+
+    @Test
+    void shouldRemoveAJob() {
+        var job = new Job("Software Engineer");
+        var jobBoard = new JobBoard();
+        jobBoard.addJob(job);
+
+        jobBoard.removeJob(job);
+
+        assertFalse(jobBoard.getJobs().contains(job));
     }
 }

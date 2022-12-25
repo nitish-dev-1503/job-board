@@ -70,6 +70,20 @@ class JobBoardTest {
     }
 
     @Test
+    void shouldReturnJobFilteredByKeywordInTitleIgnoringCase() {
+        var job1 = new Job("Software Engineer", "Bangalore");
+        var job2 = new Job("UX Engineer", "Bangalore");
+        var jobBoard = new JobBoard();
+        jobBoard.addJob(job1);
+        jobBoard.addJob(job2);
+
+        var jobsByTitle = jobBoard.getJobsByKeywordInTitle("engineer");
+
+        assertTrue(jobsByTitle.contains(job1));
+        assertTrue(jobsByTitle.contains(job2));
+    }
+
+    @Test
     void shouldReturnJobsByLocation() {
         var job1 = new Job("Software Engineer", "Bangalore");
         var job2 = new Job("UX Engineer", "Mumbai");

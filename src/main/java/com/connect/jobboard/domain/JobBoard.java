@@ -23,7 +23,10 @@ public class JobBoard {
     }
 
     public List<Job> getJobsByKeywordInTitle(String keyword) {
-        return jobs.stream().filter(job -> job.getTitle().contains(keyword)).toList();
+        return jobs.stream().filter(job -> {
+            var jobTitle = job.getTitle().toLowerCase();
+            return jobTitle.contains(keyword.toLowerCase());
+        }).toList();
     }
 
     public List<Job> getJobsByLocation(String location) {

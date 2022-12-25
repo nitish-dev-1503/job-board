@@ -21,4 +21,8 @@ public class JobBoard {
     public void removeJob(Job job) {
         jobs.remove(job);
     }
+
+    public List<Job> getJobsByKeywordInTitle(String keyword) {
+        return jobs.stream().filter(job -> job.getTitle().contains(keyword)).toList();
+    }
 }

@@ -25,4 +25,8 @@ public class JobBoard {
     public List<Job> getJobsByKeywordInTitle(String keyword) {
         return jobs.stream().filter(job -> job.getTitle().contains(keyword)).toList();
     }
+
+    public List<Job> getJobsByLocation(String location) {
+        return jobs.stream().filter(job -> job.getLocation().equals(location)).toList();
+    }
 }

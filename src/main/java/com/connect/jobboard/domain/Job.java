@@ -1,5 +1,8 @@
 package com.connect.jobboard.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Job {
@@ -7,7 +10,8 @@ public class Job {
     private final String title;
     private final String location;
 
-    public Job(String title, String location) {
+    @JsonCreator
+    public Job(@JsonProperty("title") String title, @JsonProperty("location") String location) {
         this.title = title;
         this.location = location;
         id = UUID.randomUUID();

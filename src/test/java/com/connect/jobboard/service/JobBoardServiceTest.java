@@ -3,22 +3,21 @@ package com.connect.jobboard.service;
 import com.connect.jobboard.domain.JobBoard;
 import com.connect.jobboard.repository.JobBoardRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class JobBoardServiceTest {
 
-    @Mock
+    @MockBean
     private JobBoardRepository jobBoardRepository;
 
-    @InjectMocks
+    @Autowired
     private JobBoardService jobBoardService;
 
     @Test

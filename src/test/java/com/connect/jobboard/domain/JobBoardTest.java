@@ -19,6 +19,15 @@ class JobBoardTest {
     }
 
     @Test
+    void shouldIncreaseCountBy1WhenAddingANewJob() {
+        var job = new Job("Software Engineer", "Bangalore");
+        var jobBoard = new JobBoard();
+
+        jobBoard.addJob(job);
+        assertEquals(1, jobBoard.getCount());
+    }
+
+    @Test
     void shouldReturnAllJobs() {
         var jobTitle = "Software Engineer";
         var job = new Job(jobTitle, "Bangalore");
